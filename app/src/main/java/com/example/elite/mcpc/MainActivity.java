@@ -10,5 +10,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //하이하이머징
+        //수박빈이 바꿈
     }
 }
