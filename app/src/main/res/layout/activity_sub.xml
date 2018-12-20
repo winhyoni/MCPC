@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SubActivity">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -23,12 +23,12 @@
                 android:id="@+id/toolbar"
                 >
                 <TextView
-                    android:id="@+id/titleText"
+                    android:id="@+id/subtitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"
                     android:gravity="center_horizontal"
-                    android:text="현재위치"/>
+                    android:text="상호 명"/>
 
             </android.support.v7.widget.Toolbar>
 

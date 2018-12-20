@@ -8,15 +8,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+public class SubActivity extends AppCompatActivity {
     Toolbar toolbar;
 
-    Fragment1 fragment1;
-    Fragment2 fragment2;
+    Fragment_sub1 fragmentsub1;
+    Fragment_sub2 fragmentsub2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sub);
 
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
 
-        fragment1 = new Fragment1();
-        fragment2 = new Fragment2();
+        fragmentsub1 = new Fragment_sub1();
+        fragmentsub2 = new Fragment_sub2();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentsub1).commit();
 
         TabLayout tabs = (TabLayout)findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("별점 순"));
@@ -37,15 +37,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int postion = tab.getPosition();
-                Log.d("MainActivity"," 선택된 탭 : "+postion);
+                Log.d("SubActivity"," 선택된 탭 : "+postion);
 
                 Fragment selected = null;
 
                 if(postion ==0 ){
-                    selected = fragment1;
+                    selected = fragmentsub1;
                 }
                 else if(postion == 1){
-                    selected = fragment2;
+                    selected = fragmentsub2;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, selected).commit();
             }
