@@ -1,15 +1,17 @@
 package com.example.elite.mcpc;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
+    private TextView mTexttitle;
     Fragment1 fragment1;
     Fragment2 fragment2;
     @Override
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
+
+        mTexttitle = (TextView)findViewById(R.id.titleText);
+        mTexttitle.setText("서울특별시 강남구 역삼 1동 689");
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 

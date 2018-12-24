@@ -1,8 +1,7 @@
 package com.example.elite.mcpc;
-import android.widget.ImageView;
 
 public class restaurant {
-    private ImageView img;
+    private int img;
     private String name;
     private String star;
     private String distance;
@@ -16,12 +15,21 @@ public class restaurant {
        this.distance = distance;
        this.bno = bno;
     }
+    public restaurant(int imgid, String name, String star, String distance, int bno){
+        super();
+        this.img =imgid;
+        this.name = name;
+        this.star = star;
+        this.distance = distance;
+        this.bno = bno;
+    }
 
-    public ImageView getImg() {
+
+    public int getImg() {
         return img;
     }
 
-    public void setImg(ImageView img) {
+    public void setImg(int img) {
         this.img = img;
     }
 

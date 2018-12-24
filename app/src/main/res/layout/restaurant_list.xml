@@ -6,7 +6,6 @@
 
     <ImageView
         android:id="@+id/restaurant_img"
-        android:background="@drawable/rest"
         android:layout_width="100dp"
         android:layout_height="100dp" />
     <LinearLayout
@@ -28,9 +27,9 @@
             <TextView
                 android:id="@+id/restaurant_star"
                 android:text="별점"
-                android:textSize="40dp"
+                android:textSize="20dp"
                 android:textColor="#000000"
-                android:gravity="center_horizontal"
+                android:layout_marginLeft="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -50,8 +49,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
-
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
