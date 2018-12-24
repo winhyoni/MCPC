@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Fragment1 extends Fragment {
     private static final String TAG = "Fragment1";
@@ -36,38 +37,49 @@ public class Fragment1 extends Fragment {
         Log.d("Fragment1","Fragment1 호출");
 
         ArrayList<restaurant> resList = new ArrayList<restaurant>();
-        /*
-        restaurant res = new restaurant("가게 1","1점","1km",1);
-        resList.add(res);
-        res = new restaurant("가게 2","2점","2km",2);
-        resList.add(res);
-        res = new restaurant("가게 3","3점","3km",3);
-        resList.add(res);
-        res = new restaurant("가게 4","4점","4km",4);
-        resList.add(res);
-        res = new restaurant("가게 5","5점","5km",5);
-        resList.add(res);
-        res = new restaurant("가게 6","6점","6km",6);
-        resList.add(res);
-        res = new restaurant("가게 7","7점","7km",7);
-        resList.add(res);
-        res = new restaurant("가게 8","8점","8km",8);
-        resList.add(res);
-        res = new restaurant("가게 9","9점","9km",9);
-        resList.add(res);
-*/
 
-        restaurant res = new restaurant(R.drawable.seoga,"서가앤쿡", "★★★★★","331m",1); resList.add(res);
-        res = new restaurant(R.drawable.burger,"버거킹", "★★★★★","20m",3); resList.add(res);
-        res = new restaurant(R.drawable.br,"베스킨라빈스", "★★★★☆","200m",2); resList.add(res);
-        res = new restaurant(R.drawable.newword,"새마을식당", "★★★★☆","420m",8); resList.add(res);
-        res = new restaurant(R.drawable.pizz,"피자 알볼로", "★★★★☆","990m",9); resList.add(res);
-        res = new restaurant(R.drawable.chicken,"또래오래", "★★★★☆","620m",4); resList.add(res);
-        res = new restaurant(R.drawable.doimno,"도미노피자", "★★★☆☆","550m",5); resList.add(res);
-        res = new restaurant(R.drawable.hosigi,"호식이 두마리", "★★★☆☆","780m",6); resList.add(res);
-        res = new restaurant(R.drawable.mac,"맥도날드", "★★☆☆☆","600m",7); resList.add(res);
-        res = new restaurant(R.drawable.kim,"김밥천국", "★★☆☆☆","950m",10); resList.add(res);
 
+        //res.setDistance(String.valueOf(distanceMeter)+"M");
+        restaurant res = new restaurant(R.drawable.burger,"버거킹", "★★★★★",37.506039,127.041240, 3);
+        int distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.seoga,"서가엔쿡", "★★★★☆",37.505533,127.041558,1);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.br,"베스킨라빈스", "★★★★☆", 37.505869,127.041616, 2);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.newword,"새마을식당", "★★★★☆",37.505839,127.041374,8);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.pizz,"피자 알볼로", "★★★★☆",37.503367,127.042683,9);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.chicken,"또래오래", "★★★★☆",37.504382,127.042072,4);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.doimno,"도미노피자", "★★★☆☆",37.504944,127.041797,5);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.hosigi,"호식이 두마리", "★★★☆☆",37.504057,127.042243,6);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.mac,"맥도날드", "★★☆☆☆",37.504697,127.041922,7);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
+        res = new restaurant(R.drawable.kim,"김밥천국", "★★☆☆☆",37.503776,127.042372,10);
+        distanceMeter = distance(37.504198, 127.047967, res.getX(), res.getY());
+        res.setDistance(distanceMeter);
+        resList.add(res);
 
         dataAdapter = new MyCustomAdapter(getActivity(), R.layout.restaurant_list, resList);
         ListView listView = (ListView)getActivity().findViewById(R.id.fragment1_listview);
@@ -128,7 +140,7 @@ public class Fragment1 extends Fragment {
             holder.bno.setText(Integer.toString(res.getBno()));
             holder.name.setText(res.getName());
             holder.star.setText(res.getStar());
-            holder.dis.setText(res.getDistance());
+            holder.dis.setText(Integer.toString(res.getDistance())+"M");
 
             holder.dis.setTag(res);
 
@@ -136,5 +148,28 @@ public class Fragment1 extends Fragment {
         }
     }
 
+    private static int distance(double lat1, double lon1, double lat2, double lon2) {
 
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        dist = dist * 1609.344;
+
+        int result = (int)dist;
+        return result;
+    }
+
+
+    // This function converts decimal degrees to radians
+    private static double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    // This function converts radians to decimal degrees
+    private static double rad2deg(double rad) {
+        return (rad * 180 / Math.PI);
+    }
 }

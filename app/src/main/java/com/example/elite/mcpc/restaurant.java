@@ -4,23 +4,18 @@ public class restaurant {
     private int img;
     private String name;
     private String star;
-    private String distance;
+    private double x;
+    private double y;
+    private int distance;
     private int bno;
 
-    public restaurant( String name, String star, String distance, int bno){
-        super();
-      // this.img = img;
-       this.name = name;
-       this.star = star;
-       this.distance = distance;
-       this.bno = bno;
-    }
-    public restaurant(int imgid, String name, String star, String distance, int bno){
+    public restaurant(int imgid, String name, String star, double x, double y, int bno){
         super();
         this.img =imgid;
         this.name = name;
         this.star = star;
-        this.distance = distance;
+        this.x = x;
+        this.y = y;
         this.bno = bno;
     }
 
@@ -49,11 +44,27 @@ public class restaurant {
         this.star = star;
     }
 
-    public String getDistance() {
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 
